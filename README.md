@@ -95,16 +95,18 @@ npm install -g pnpm
 pnpm -v
 ```
 
-Da es noch immer nicht fuktionierte fügte ich hinzu: 
-Zu erst hierzu das Projekt als Zip-Datei dornloaden oder clonen und anschliesend in das Arbeitsverzeichnis `cd openclaw` wechseln. 
+Aus Sicherheitsgründen bitte noch [Cmake downloaden](https://cmake.org/download/) und installieren.  
+
+Da es noch immer nicht fuktionierte fügte ich hinzu:  
+Zu erst hierzu das Projekt als Zip-Datei downloaden oder clonen, bzw. entpacken und anschliesend in das betreffende Arbeitsverzeichnis in der Powershell `cd openclaw` wechseln. 
 Und dort in der Powershell (z.B. `PS C:\Users\danie\openclaw> pnpm install`) eingeben. 
-[Der Installationsprozess nimmt wegen des Downloadens und Kompilierens reichlich Zeit in Anspruch, kann bei Fehlern wieder erneut aufgenommen werden, in dem man mit `pnpm install` einfach wieder erneut im richtigen Arbeitsverzeichnis beginnt. Vorausgesetzt man hat den betreffenden Fehler zuvor korrigiert. (Bei mir fehlte das git zum clonen, der Befehl weiter oben dazu von mir nachgetragen wurde.)]
+[Der Installationsprozess nimmt wegen des Downloadens und Kompilierens reichlich Zeit in Anspruch, kann bei Fehlern wieder erneut aufgenommen werden, in dem man mit `pnpm install` einfach wieder erneut im richtigen Arbeitsverzeichnis beginnt. Vorausgesetzt man hat den betreffenden Fehler zuvor korrigiert. (Bei mir fehlte das git zum clonen, der Befehl weiter oben dazu von mir dazu nachgetragen wurde.)]
 
 ```Powershell
 pnpm install
 ```
 
-Jetzt sollte es anstelle mit `npm run dev` mit nachfolgendem `pnpm` installiert werden können. 
+Jetzt sollte es anstelle mit `npm run dev` mit nachfolgendem `pnpm dev` installiert werden können. 
 ```
 pnpm dev
 ```
