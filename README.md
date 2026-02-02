@@ -43,12 +43,18 @@ Model note: while any model is supported, I strongly recommend **Anthropic Pro/M
 
 ## Install (recommended)
 
+Sie Dir das Video auf [Youtube](https://youtu.be/efKxEIdTa7A?si=6b0JSHcR7JChpXg0) an.
+
 ### MacOS/Linux from OpenClaw.ai
+
+Mit diesem Einzeiler wird Node.js und alles weitere für Sie auf MacOS installiert. 
 ```
 curl -fsSL https://openclaw.ai/install.sh | bash
 ```
 
 ### Windows from OpenClaw.ai
+
+Mit diesem Einzeiler wird Node.js und alles weitere für Sie auf Windows installiert. 
 
 via CMD
 ```CMD
