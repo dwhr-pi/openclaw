@@ -69,8 +69,9 @@ iwr -useb https://openclaw.ai/install.ps1 | iex
 Weil dieser Installationsprozess nicht ordendlich in einem durchlief, wurden folgende Maßnahmen notwenig auf Windows. 
 
 
-Git installieren mit und Versionscheck durchführen mit `git --version`:
-```
+Git installieren mit und Versionscheck durchführen mit `git --version`: Dies erfordert einen Neutstart der Powershell (als Administrator) nach Abschluss der Installation, damit die Versionsabfrage gelingt. 
+
+```Powershell
 winget install --id Git.Git -e --source winget
 
 git --version
@@ -78,14 +79,18 @@ git --version
 
 Notwendig wird noch die Installation von pnpm und dann mit `pnpm -v` den Versionscheck dazu durchzuführen. 
 Wenn eine Versionsangabe kommt, ist es perfekt. 
-```
-npm install -g pnpm
-pnpm -v
 
+```Powershell
+npm install -g pnpm
+
+pnpm -v
 ```
 
 Da es noch immer nicht fuktionierte fügte ich hinzu: 
-```
+Zu erst hierzu in mein Arbeitsverzeichnis `cd openclawbot` wechseln. 
+Und dann 
+
+```Powershell
 pnpm install
 ```
 
