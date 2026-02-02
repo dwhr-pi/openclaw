@@ -62,8 +62,50 @@ curl -fsSL https://openclaw.ai/install.cmd -o install.cmd && install.cmd && del 
 ```
 or via Powershell
 ```Powershell
+Set-ExecutionPolicy -ExecutionPolicy UNRESTRICTED
+
 iwr -useb https://openclaw.ai/install.ps1 | iex
 ```
+
+
+
+#### So öffnest du PowerShell als Administrator unter Windows 11 – es gibt mehrere schnelle Wege:
+
+##### ✅ Methode 1: Startmenü (am einfachsten)
+
+Start anklicken oder Windows-Taste drücken
+
+„PowerShell“ eintippen
+
+Rechtsklick auf Windows PowerShell
+
+„Als Administrator ausführen“ auswählen
+
+Benutzerkontensteuerung mit Ja bestätigen
+
+##### ⚡ Methode 2: Power-User-Menü (Win + X)
+
+Windows-Taste + X drücken
+
+„Windows Terminal (Administrator)“ auswählen
+
+In Windows 11 ist PowerShell standardmäßig im Terminal geöffnet. 
+
+👉 Falls dort die CMD statt PowerShell startet:
+
+Oben im Terminal auf den kleinen Pfeil klicken
+
+PowerShell auswählen oder als Standard festlegen
+
+🧠 Methode 3: Ausführen-Dialog
+
+Windows-Taste + R drücken
+
+powershell eingeben
+
+Strg + Shift + Enter drücken
+
+Mit Ja bestätigen
 
 ### Linux orginal install
 
