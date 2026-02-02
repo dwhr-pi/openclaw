@@ -81,7 +81,10 @@ Da es noch immer nicht fuktionierte fügte ich hinzu:
 ```
 pnpm install
 ```
-
+Git installieren.
+```
+winget install --id Git.Git -e --source winget
+```
 Sowie notwenig tsgo und den Versionscheck mit `tsgo --version` 
 
 ```
