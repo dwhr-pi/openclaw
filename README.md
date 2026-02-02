@@ -95,7 +95,8 @@ npm install -g pnpm
 pnpm -v
 ```
 
-Aus Sicherheitsgründen bitte noch [Cmake downloaden](https://cmake.org/download/) und installieren.  
+Aus Sicherheitsgründen bitte noch [Cmake downloaden](https://cmake.org/download/) und installieren. 
+Es wird noch [VS2013](https://www.google.com/search?q=vs2013+download&oq=VS2013&gs_lcrp=EgZjaHJvbWUqCQgBEAAYExiABDIGCAAQRRg5MgkIARAAGBMYgAQyCQgCEAAYExiABDIJCAMQABgTGIAEMgkIBBAAGBMYgAQyCQgFEAAYExiABDIICAYQABgTGB4yCAgHEAAYExgeMggICBAAGBMYHjIICAkQABgTGB7SAQgzNjA2ajBqN6gCCLACAfEF7VPHFKLHRUk&sourceid=chrome&ie=UTF-8) von Microsoft benötigt.   
 
 Da es noch immer nicht fuktionierte fügte ich hinzu:  
 Zu erst hierzu das Projekt als Zip-Datei downloaden oder clonen, bzw. entpacken und anschliesend in das betreffende Arbeitsverzeichnis in der Powershell `cd openclaw` wechseln. 
