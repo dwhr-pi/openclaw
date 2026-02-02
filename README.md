@@ -69,6 +69,13 @@ iwr -useb https://openclaw.ai/install.ps1 | iex
 Weil dieser Installationsprozess nicht ordendlich in einem durchlief, wurden folgende Maßnahmen notwenig auf Windows. 
 
 
+Git installieren mit und Versionscheck durchführen mit `git --version`:
+```
+winget install --id Git.Git -e --source winget
+
+git --version
+```
+
 Notwendig wird noch die Installation von pnpm und dann mit `pnpm -v` den Versionscheck dazu durchzuführen. 
 Wenn eine Versionsangabe kommt, ist es perfekt. 
 ```
@@ -81,10 +88,7 @@ Da es noch immer nicht fuktionierte fügte ich hinzu:
 ```
 pnpm install
 ```
-Git installieren.
-```
-winget install --id Git.Git -e --source winget
-```
+
 Sowie notwenig tsgo und den Versionscheck mit `tsgo --version` 
 
 ```
