@@ -66,7 +66,8 @@ Set-ExecutionPolicy -ExecutionPolicy UNRESTRICTED
 
 iwr -useb https://openclaw.ai/install.ps1 | iex
 ```
-Weil dieser Installationsprozess nicht ordendlich in einem durchlief, wurden folgende Maßnahmen notwenig auf Windows. 
+
+#### Weil dieser Installationsprozess nicht wie versprochen in einem ordendlich durchlief, wurden folgende Maßnahmen auf Windows notwenig. 
 
 
 Git installieren mit und Versionscheck durchführen mit `git --version`: Dies erfordert einen Neutstart der Powershell (als Administrator) nach Abschluss der Installation, damit die Versionsabfrage gelingt. 
@@ -75,6 +76,14 @@ Git installieren mit und Versionscheck durchführen mit `git --version`: Dies er
 winget install --id Git.Git -e --source winget
 
 git --version
+```
+
+Sowie notwenig tsgo und den Versionscheck mit `tsgo --version` zu testen, kein Neustart der Powershell erforderlich. 
+
+```
+npm install -g tsgo
+
+tsgo --version
 ```
 
 Notwendig wird noch die Installation von pnpm und dann mit `pnpm -v` den Versionscheck dazu durchzuführen. 
@@ -87,19 +96,12 @@ pnpm -v
 ```
 
 Da es noch immer nicht fuktionierte fügte ich hinzu: 
-Zu erst hierzu in mein Arbeitsverzeichnis `cd openclawbot` wechseln. 
-Und dann 
+Zu erst hierzu das Projekt als Zip-Datei dornloaden oder clonen und anschliesend in das Arbeitsverzeichnis `cd openclaw` wechseln. 
+Und dort in der Powershell (z.B. `PS C:\Users\danie\openclaw> pnpm install`) eingeben. 
+[Der Installationsprozess nimmt wegen des Downloadens und Kompilierens reichlich Zeit in Anspruch, kann bei Fehlern wieder erneut aufgenommen werden, in dem man mit `pnpm install` einfach wieder erneut im richtigen Arbeitsverzeichnis beginnt. Vorausgesetzt man hat den betreffenden Fehler zuvor korrigiert. (Bei mir fehlte das git zum clonen, der Befehl weiter oben dazu von mir nachgetragen wurde.)]
 
 ```Powershell
 pnpm install
-```
-
-Sowie notwenig tsgo und den Versionscheck mit `tsgo --version` 
-
-```
-npm install -g tsgo
-
-tsgo --version
 ```
 
 Jetzt sollte es anstelle mit `npm run dev` mit nachfolgendem `pnpm` installiert werden können. 
