@@ -43,16 +43,18 @@ Model note: while any model is supported, I strongly recommend **Anthropic Pro/M
 
 ## Install (recommended)
 
-### MacOS/Linux
+### MacOS/Linux from OpenClaw.ai
 ```
 curl -fsSL https://openclaw.ai/install.sh | bash
 ```
 
-### Windows
+### Windows from OpenClaw.ai
+
+via CMD
 ```CMD
 curl -fsSL https://openclaw.ai/install.cmd -o install.cmd && install.cmd && del install.cmd
 ```
-
+or via Powershell
 ```Powershell
 iwr -useb https://openclaw.ai/install.ps1 | iex
 ```
