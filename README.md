@@ -65,8 +65,33 @@ or via Powershell
 Set-ExecutionPolicy -ExecutionPolicy UNRESTRICTED
 
 iwr -useb https://openclaw.ai/install.ps1 | iex
+
+
 ```
 
+Notwendig wird noch die installation von pnpm und dann `pnpm -v` den Versionscheck durchzuführen. 
+Wenn eine Version kommt → perfekt. 
+```
+npm install -g pnpm
+pnpm -v
+
+```
+
+```
+pnpm install
+```
+
+Sowie notwenig tsgo und den Versionscheck mit `tsgo --version` 
+
+```
+npm install -g tsgo
+
+tsgo --version
+```
+
+```
+pnpm dev
+```
 
 
 #### So öffnest du PowerShell als Administrator unter Windows 11 – es gibt mehrere schnelle Wege:
