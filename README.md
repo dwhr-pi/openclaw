@@ -65,18 +65,19 @@ or via Powershell
 Set-ExecutionPolicy -ExecutionPolicy UNRESTRICTED
 
 iwr -useb https://openclaw.ai/install.ps1 | iex
-
-
 ```
+Weil dieser Installationsprozess nicht ordendlich in einem durchlief, wurden folgende Maßnahmen notwenig auf Windows. 
 
-Notwendig wird noch die installation von pnpm und dann `pnpm -v` den Versionscheck durchzuführen. 
-Wenn eine Version kommt → perfekt. 
+
+Notwendig wird noch die Installation von pnpm und dann mit `pnpm -v` den Versionscheck dazu durchzuführen. 
+Wenn eine Versionsangabe kommt, ist es perfekt. 
 ```
 npm install -g pnpm
 pnpm -v
 
 ```
 
+Da es noch immer nicht fuktionierte fügte ich hinzu: 
 ```
 pnpm install
 ```
@@ -89,6 +90,7 @@ npm install -g tsgo
 tsgo --version
 ```
 
+Jetzt sollte es anstelle mit `npm run dev` mit nachfolgendem `pnpm` installiert werden können. 
 ```
 pnpm dev
 ```
