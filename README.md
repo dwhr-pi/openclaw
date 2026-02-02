@@ -43,6 +43,23 @@ Model note: while any model is supported, I strongly recommend **Anthropic Pro/M
 
 ## Install (recommended)
 
+### MacOS/Linux
+```
+curl -fsSL https://openclaw.ai/install.sh | bash
+```
+
+### Windows
+```CMD
+curl -fsSL https://openclaw.ai/install.cmd -o install.cmd && install.cmd && del install.cmd
+```
+
+```Powershell
+iwr -useb https://openclaw.ai/install.ps1 | iex
+```
+
+### Linux orginal install
+
+
 Runtime: **Node ≥22**.
 
 ```bash
