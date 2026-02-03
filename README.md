@@ -105,7 +105,8 @@ Invoke-WebRequest https://aka.ms/vs/17/release/vs_BuildTools.exe -OutFile vs_Bui
 
 
 Dann
-& "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Auxiliary\Build\vcvars64.bat"
+.\vs_BuildTools.exe
+
 
 
 
