@@ -158,10 +158,11 @@ Diese Dinge nicht auswählen, spart Zeit & Platz:
 ⛔ Test tools / Profiler
 
 
-Auch dieser Befehl dauert Zeit.
+Auch dieser Befehl dauert Zeit. 
 ```Powershell
 & "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvars64.bat"
 ```
+Der Pfad hängt davon ab, wo VS installiert ist (Enterprise vs BuildTools etc.), sowie die Version 2022.
 
 ```Powershell
 cl
