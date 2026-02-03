@@ -116,6 +116,8 @@ Im Visual Studio Installer wähle genau diese Workload:
 
 🔹 Workload
 
+Visual Studio Enterprise 2026 Installer
+
 ☑ Desktop development with C++
 
 ✅ Pflicht-Komponenten (rechts im Detailbereich)
