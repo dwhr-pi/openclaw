@@ -157,6 +157,8 @@ Diese Dinge nicht auswählen, spart Zeit & Platz:
 
 ⛔ Test tools / Profiler
 
+
+Auch dieser Befehl dauert Zeit.
 ```Powershell
 & "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvars64.bat"
 ```
