@@ -101,7 +101,10 @@ Versuche mal diesen nachfolgenden Einzeiler. (Soll sogar CMake, MSVC (C++ Compil
 ```Powershell
 "%ProgramFiles(x86)%\Microsoft Visual Studio\Installer\InstallCleanup.exe" -full
 
+Invoke-WebRequest https://aka.ms/vs/17/release/vs_BuildTools.exe -OutFile vs_BuildTools.exe; Start-Process .\vs_BuildTools.exe -ArgumentList "--quiet --wait --add Microsoft.VisualStudio.Workload.VCTools --includeRecommended --includeOptional" -Wait
 
+
+funktioniert nicht
 winget install --id Microsoft.VisualStudio.2022.BuildTools --override "--quiet --wait --add Microsoft.VisualStudio.Workload.VCTools --includeRecommended --includeOptional"
 ```
 
