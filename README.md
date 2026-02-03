@@ -246,7 +246,7 @@ C:\Users\danie\OpenClawBot>pnpm build
 
 > openclaw@2026.1.30 build
 C:\Users\danie\OpenClawBot
-> pnpm canvas:a2ui:bundle && tsc -p tsconfig.json --noEmit false && node --import tsx scripts/canvas-a2ui-copy.ts && node --import tsx scripts/copy-hook-metadata.ts && node --import tsx scripts/write-build-info.ts > openclaw@2026.1.30 canvas:a2ui:bundle
+> pnpm canvas:a2ui:bundle && tsc -p tsconfig.json --noEmit false && node --import tsx scripts/canvas-a2ui-copy.ts && node --import tsx scripts/copy-hook-metadata.ts && node --import tsx scripts/write-build-info.ts > openclaw@2026.1.30 canvas:a2ui:bundle  
 C:\Users\danie\OpenClawBot > bash scripts/bundle-a2ui.sh wsl: Failed to start the systemd user session for 'unbuntu'. See journalctl for more details. scripts/bundle-a2ui.sh: line 31: node: command not found A2UI bundling failed. Re-run with: pnpm canvas:a2ui:bundle If this persists, verify pnpm deps and try again.  ELIFECYCLE  Command failed.  ELIFECYCLE  Command failed with exit code 1.
 
 C:\Users\danie\OpenClawBot>
@@ -254,12 +254,13 @@ C:\Users\danie\OpenClawBot>
 
 ### WSL
 Also ohne einer funktionierender WSL (bei mir mit `Unbuntu`) ist OpenClaw nicht auf Windows so einfach lauffähig. 
-Die WSL nachinstallieren und Unbuntu aus dem Microsoft Store installieren ist hierzu notwendig. 
-Dort Benutzer und Passwort, sowie für sudo einrichten genügt um in der WSL mit Unbuntu weiter machen zu können. 
-Bei meinem Unbuntu ist es mir nicht gelungen ab Windows 7 den Desktop über die WSL zu starten, daher hatte ich mit der Einrichtung der WSL aufgehört. Auf Windows XP funktionerte das Unbuntu mit Desktop über die WSL. Dies aber für die `node` nicht weiter schlimm ist, solange das Terminal von Unbuntu in der WSL als Adminstrator funktionstüchig ist und über `sudo`-Rechte verfügt. 
+Die WSL nachzuinstallieren und dann Unbuntu aus dem Microsoft Store zu installieren ist hierzu notwendig und genauso einfach. 
+Dort Benutzer und Passwort, sowie für sudo Nutzung einrichten genügt um in der jetzigen WSL mit Unbuntu weiter machen zu können. 
+Bei meinem Unbuntu ist es mir nicht gelungen seit Windows 7 den Desktop über die WSL zu starten, daher hatte ich mit der Einrichtung der WSL auch auf Windows 11 wieder schnell aufgehört. Auf Windows XP funktionerte das Unbuntu mit Desktop über die WSL recht problemlos. Dies ist aber für die `node` nicht weiter schlimm, solange das Terminal von Unbuntu in der WSL als Adminstrator funktionstüchig ist und über `sudo`-Rechte verfügt. 
+Man braucht hierzu also kein vollwertiges nutzbares eingerichtetes Unbuntu, wie im Microsoft Store als Screenshot abgebildet. 
 
 
-Die Fehlermeldung von vorhin:
+Die Fehlermeldung von vorhin in der WSL:
 
 ```
 wsl: Failed to start the systemd user session for 'unbuntu'
