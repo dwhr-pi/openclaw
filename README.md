@@ -196,10 +196,15 @@ cmake --version
 ```
 
 Daher zog ich diese Lösung vor. 
-Auch dieser Befehl dauert Zeit. 
+Auch dieser Befehl dauert Zeit und achte auf den richtigen Pfad. 
 ```Powershell
 & "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvars64.bat"
 ```
+
+```Powershell
+& "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Auxiliary\Build\vcvars64.bat"
+```
+
 Der Pfad hängt davon ab, wo VS installiert ist (Enterprise vs BuildTools etc.), sowie die Version 2022.
 
 
