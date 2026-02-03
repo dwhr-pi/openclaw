@@ -205,8 +205,10 @@ Auch dieser Befehl dauert Zeit und achte auf den richtigen Pfad.
 & "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Auxiliary\Build\vcvars64.bat"
 ```
 
-Der Pfad hängt davon ab, wo VS installiert ist (Enterprise vs BuildTools etc.), sowie die Version 2022.
-
+Der Pfad hängt davon ab, wo VS installiert ist (Enterprise vs BuildTools etc.), sowie ob es die Version 2022 ist. 
+Nach dem Starten der vcvars64.bat öffnete sich ein neues leeres Consolen Fenster [Screenshot](_Screenshot_Microsoft_Visual_Studio_CL.png).  
+In diesem habe ich dann erfolgreich das `pnpm install` ausgeführt. Allerdings musste ich von dort aus in das Arbeitsverzeichnis hin wechseln, um pnpm auszuführen. 
+Es ging alles gut. Eine Warnung gab es noch, in der Verlangt wurde `pnpm approve-builds` auszuführen, um die `core-js` zu bauen....
 
 
 
@@ -221,7 +223,7 @@ Und dort in der Powershell (z.B. `PS C:\Users\danie\openclaw> pnpm install`) ein
 pnpm install
 ```
 
-Jetzt sollte es anstelle mit `npm run dev` mit nachfolgendem `pnpm dev` installiert werden können. 
+Jetzt sollte es anstelle mit `npm run dev` mit nachfolgendem `pnpm dev` endlich gestartet werden können. 
 ```
 pnpm dev
 ```
