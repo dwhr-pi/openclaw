@@ -108,7 +108,7 @@ funktioniert nicht
 winget install --id Microsoft.VisualStudio.2022.BuildTools --override "--quiet --wait --add Microsoft.VisualStudio.Workload.VCTools --includeRecommended --includeOptional"
 ```
 
-Ab hier ist es etwas unsicher, mit der Installtion der aus Sicherheitsgründen notwendigen Softwarepaketen ob der Installationsscript von OpenClawe.ai nun vollständig von alleine funktionieren würde. Fakt ist, das nachfolgende beschreibt die vorherige Situation mit `pnpm install`, das hier noch etwas fehlte und dort. 
+Ab hier ist es etwas unsicher, mit der Installtion der aus Sicherheitsgründen notwendigen Softwarepaketen ob der Installationsscript von `OpenClaw.ai` nun vollständig von alleine funktionieren würde. Fakt ist, das nachfolgende beschreibt die vorherige Situation mit `pnpm install`, das hier noch etwas fehlte und dort. 
 
 Da es noch immer nicht fuktionierte fügte ich hinzu:  
 Zu erst hierzu das Projekt als Zip-Datei downloaden oder clonen, bzw. entpacken und anschliesend in das betreffende Arbeitsverzeichnis in der Powershell `cd openclaw` wechseln. 
