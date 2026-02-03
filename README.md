@@ -95,21 +95,26 @@ npm install -g pnpm
 pnpm -v
 ```
 
-Aus Sicherheitsgründen bitte noch [Cmake downloaden](https://cmake.org/download/) und installieren. 
-Es wird noch [VS2013](https://www.google.com/search?q=vs2013+download&oq=VS2013&gs_lcrp=EgZjaHJvbWUqCQgBEAAYExiABDIGCAAQRRg5MgkIARAAGBMYgAQyCQgCEAAYExiABDIJCAMQABgTGIAEMgkIBBAAGBMYgAQyCQgFEAAYExiABDIICAYQABgTGB4yCAgHEAAYExgeMggICBAAGBMYHjIICAkQABgTGB7SAQgzNjA2ajBqN6gCCLACAfEF7VPHFKLHRUk&sourceid=chrome&ie=UTF-8) von Microsoft benötigt.   
-Versuche mal diesen nachfolgenden Einzeiler. (Soll sogar CMake, MSVC (C++ Compiler) und Windows SDK enthalten.)
+Aus Sicherheitsgründen eventuell bitte noch [Cmake downloaden](https://cmake.org/download/) und installieren. 
+Es wird noch [VS2022](https://www.google.com/search?q=vs2022+download&sca_esv=9cf1df91a9197cf6&sxsrf=ANbL-n4ruzYJpkUcupyh-YEDecGGuT9Y1A%3A1770094509267&ei=rX-BaZqIENzYi-gP5a230Ak&biw=1106&bih=719&aic=0&ved=0ahUKEwjaksbzw7ySAxVc7AIHHeXWDZoQ4dUDCBE&uact=5&oq=vs2022+download&gs_lp=Egxnd3Mtd2l6LXNlcnAiD3ZzMjAyMiBkb3dubG9hZDIGEAAYBxgeMgYQABgHGB4yBhAAGAcYHjIGEAAYBxgeMgYQABgHGB4yBhAAGAcYHjIFEAAYgAQyBhAAGAcYHjIIEAAYBxgKGB4yBhAAGAcYHkjzEFDrCljXC3ABeAGQAQCYAfoEoAGKCaoBAzUtMrgBA8gBAPgBAZgCAqAC0ATCAgoQABiwAxjWBBhHmAMAiAYBkAYIkgcFMS40LTGgB5wLsgcDNC0xuAelBMIHBTMtMS4xyAc5gAgA&sclient=gws-wiz-serp) von Microsoft benötigt.   
+
+Versuche mal diesen nachfolgenden Einzeiler. (Enhält CMake, MSVC (C++ Compiler) und Windows SDK.)
+
 ```Powershell
 "%ProgramFiles(x86)%\Microsoft Visual Studio\Installer\InstallCleanup.exe" -full
 
 Invoke-WebRequest https://aka.ms/vs/17/release/vs_BuildTools.exe -OutFile vs_BuildTools.exe; Start-Process .\vs_BuildTools.exe -ArgumentList "--quiet --wait --add Microsoft.VisualStudio.Workload.VCTools --includeRecommended --includeOptional" -Wait
 ```
+Dies läd die letzte bekannte Version von Microsoft Visual Studio herunter.
 
-Dann
-```
+
+Dann installieren mit: 
+```Powershell
 .\vs_BuildTools.exe
 ```
 Computer nach der vollständigen Installation von Visual Studio (aller genannten Komponenten) neustarten.
 
+Diese nachfolgenden Komponenten werden für Visual Studio Enterprise 2022 bei der Installtion benötigt und werden im rechten Fenster des Installers vor dem Herunterladen aus-/abgewählt. 
 ✅ Minimal & korrekt (empfohlen)
 
 Im Visual Studio Installer wähle genau diese Workload:
