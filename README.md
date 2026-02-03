@@ -104,6 +104,11 @@ Versuche mal diesen nachfolgenden Einzeiler. (Soll sogar CMake, MSVC (C++ Compil
 Invoke-WebRequest https://aka.ms/vs/17/release/vs_BuildTools.exe -OutFile vs_BuildTools.exe; Start-Process .\vs_BuildTools.exe -ArgumentList "--quiet --wait --add Microsoft.VisualStudio.Workload.VCTools --includeRecommended --includeOptional" -Wait
 
 
+Dann
+& "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Auxiliary\Build\vcvars64.bat"
+
+
+
 funktioniert nicht
 winget install --id Microsoft.VisualStudio.2022.BuildTools --override "--quiet --wait --add Microsoft.VisualStudio.Workload.VCTools --includeRecommended --includeOptional"
 ```
