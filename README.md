@@ -117,32 +117,32 @@ Computer nach der vollständigen Installation von Visual Studio (aller genannten
 Diese nachfolgenden Komponenten werden für Visual Studio Enterprise 2022 bei der Installtion benötigt und werden im rechten Fenster des Installers vor dem Herunterladen aus-/abgewählt. 
 ✅ Minimal & korrekt (empfohlen)
 
-Im Visual Studio Installer wähle genau diese Workload:
+Im Visual Studio Installer wähle genau diesen nachfolgenden Workload. 
 
-🔹 Workload im Visual Studio Enterprise 2026 Installer: 
+### Workload im Visual Studio Enterprise 2026 Installer: 
 
-☑ Desktop development with C++
-(Desktopentwicklung mit C++)
+☑ Desktop development with C++  
+(auf Deutsch: Desktopentwicklung mit C++)
 
-✅ Davon die Pflicht-Komponenten (rechts im Detailbereich)
+### Davon die Pflicht-Komponenten (Siehe rechts im Detailbereich)
 Stell sicher, dass mindestens diese Häkchen gesetzt sind:
 
-🧰 Compiler & Toolchains: Nicht die übrigen vorgänger Versionen (unten).
+#### 🧰 Compiler & Toolchains: Nicht die übrigen vorgänger Versionen, die weiter unten sind.
 
 ☑ MSVC v143 – VS 2022 C++ x64/x86-Buildtools
 
-🪟 Windows SDK:
+#### 🪟 Windows SDK:
 
 ☑ Windows 11 SDK (10.0.26100+)
-(oder kurz Windows 10 SDK – beides zusammen ist ok)
+(oder kurz Windows 10 SDK – beides zusammen ist ok, weil es zwei SDKs davon gibt.)
 
-🧱 Build-System
+#### 🧱 Build-System
 
 ☑ C++-CMake tools for Windows
 
 
 
-⚠️ Explizit NICHT nötig
+### ⚠️ Explizit NICHT nötig
 
 Diese Dinge nicht auswählen, spart Zeit & Platz:
 
