@@ -157,8 +157,11 @@ Diese Dinge nicht auswählen, spart Zeit & Platz:
 
 ⛔ Test tools / Profiler
 
-
+```Powershell
+& "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvars64.bat"
 ```
+
+```Powershell
 cl
 ```
 
