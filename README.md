@@ -120,7 +120,8 @@ Computer nach der vollständigen Installation von Visual Studio (aller genannten
 
 ## notwendige Microsoft Visual Studio Komponenten
 
-Diese nachfolgenden Komponenten werden für Visual Studio Enterprise 2022 bei der Installtion benötigt und werden im rechten Fenster des Installers im Detailbereich vor dem Herunterladen aus-/abgewählt. Siehe [Screenshot](Screenshot_Microsoft_Visual_Studio_Komponenten.png). 
+Diese nachfolgenden Komponenten werden für Visual Studio Enterprise 2022 bei der Installtion benötigt und werden im rechten Fenster des Installers im Detailbereich vor dem Herunterladen aus-/abgewählt. Siehe [Screenshot](assets
+/Screenshot/_Screenshot_Microsoft_Visual_Studio_Komponenten.png). 
 
 ✅ Minimal & korrekt (empfohlen)
 
