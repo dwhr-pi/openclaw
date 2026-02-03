@@ -251,7 +251,44 @@ C:\Users\danie\OpenClawBot > bash scripts/bundle-a2ui.sh wsl: Failed to start th
 
 C:\Users\danie\OpenClawBot>
 ```
-Also ohne einer funktionierender WSL (bei mir mit `Unbuntu`) nicht auf Windows so einfach lauffähig. 
+
+### WSL
+Also ohne einer funktionierender WSL (bei mir mit `Unbuntu`) ist OpenClaw nicht auf Windows so einfach lauffähig. 
+Die WSL nachinstallieren und Unbuntu aus dem Microsoft Store installieren ist hierzu notwendig. 
+Dort Benutzer und Passwort, sowie für sudo einrichten genügt um in der WSL mit Unbuntu weiter machen zu können. 
+Bei meinem Unbuntu ist es mir nicht gelungen ab Windows 7 den Desktop über die WSL zu starten, daher hatte ich mit der Einrichtung der WSL aufgehört. Auf Windows XP funktionerte das Unbuntu mit Desktop über die WSL. Dies aber für die `node` nicht weiter schlimm ist, solange das Terminal von Unbuntu in der WSL als Adminstrator funktionstüchig ist und über `sudo`-Rechte verfügt. 
+
+
+Die Fehlermeldung von vorhin:
+
+```
+wsl: Failed to start the systemd user session for 'unbuntu'
+scripts/bundle-a2ui.sh: line 31: node: command not found
+```
+
+Das heißt:
+
+1. pnpm ruft `bash` über die WSL auf
+2. Ubuntu startet zwar, aber:
+    * entweder systemd ist kaputt / falsch konfiguriert
+    * **Node.js ist in Ubuntu nicht installiert**
+3. Deshalb findet das Bash-Script **kein** `node`
+
+
+Innerhalb der WSL testen welche Node Version installiert ist. 
+```
+node -v
+```
+
+Falls `node` in der WSL nicht gefunden wird, nachfolgend nach installieren mit: 
+```
+curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+sudo apt install -y nodejs
+node -v
+npm -v
+```
+
+XXXXXXXXXXXXX
 
 
 Jetzt sollte es anstelle mit `npm run dev` mit nachfolgendem `pnpm dev` endlich gestartet werden können. 
