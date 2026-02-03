@@ -223,6 +223,24 @@ Und dort in der Powershell (z.B. `PS C:\Users\danie\openclaw> pnpm install`) ein
 pnpm install
 ```
 
+```Powershell
+pnpm approve-builds
+```
+Mit der Leertaste die Auswahl für `core-js` vornehmen. Eingabetaste drücken und anschließend mit `y` bestätigen. 
+Es sollte eine Meldung mit `Running postinstall script` erscheinen. 
+
+Dann wieder 
+```Powershell
+pnpm install
+```
+Die vorherige Warnung beim Ausführen des Befehls *darf darf danach NICHT mehr erscheinen*. 
+
+Nun eingeben und es wird der Rest gebaut. 
+```Powershell
+pnpm build
+```
+
+
 Jetzt sollte es anstelle mit `npm run dev` mit nachfolgendem `pnpm dev` endlich gestartet werden können. 
 ```
 pnpm dev
