@@ -158,12 +158,8 @@ Diese Dinge nicht auswählen, spart Zeit & Platz:
 ⛔ Test tools / Profiler
 
 
-Auch dieser Befehl dauert Zeit. 
-```Powershell
-& "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvars64.bat"
-```
-Der Pfad hängt davon ab, wo VS installiert ist (Enterprise vs BuildTools etc.), sowie die Version 2022.
-
+#### cl
+Die Versionsüberprüfung mit 'cl' ergibt bei mir nur eine Fehlermeldung. 
 ```Powershell
 cl
 ```
@@ -175,16 +171,27 @@ Microsoft (R) C/C++ Optimizing Compiler Version 19.xx
 ```
 ist alles korrekt installiert. 
 
+
+```
+funktioniert nicht
+winget install --id Microsoft.VisualStudio.2022.BuildTools --override "--quiet --wait --add Microsoft.VisualStudio.Workload.VCTools --includeRecommended --includeOptional"
+```
+
 Dann cmake testen mit:
 
 ```
 cmake --version
 ```
 
+Daher zog ich diese Lösung vor. 
+Auch dieser Befehl dauert Zeit. 
+```Powershell
+& "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvars64.bat"
 ```
-funktioniert nicht
-winget install --id Microsoft.VisualStudio.2022.BuildTools --override "--quiet --wait --add Microsoft.VisualStudio.Workload.VCTools --includeRecommended --includeOptional"
-```
+Der Pfad hängt davon ab, wo VS installiert ist (Enterprise vs BuildTools etc.), sowie die Version 2022.
+
+
+
 
 Ab hier ist es etwas unsicher, mit der Installtion der aus Sicherheitsgründen notwendigen Softwarepaketen ob der Installationsscript von `OpenClaw.ai` nun vollständig von alleine funktionieren würde. Fakt ist, das nachfolgende beschreibt die vorherige Situation mit `pnpm install`, das hier noch etwas fehlte und dort. 
 
