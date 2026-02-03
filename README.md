@@ -102,12 +102,61 @@ Versuche mal diesen nachfolgenden Einzeiler. (Soll sogar CMake, MSVC (C++ Compil
 "%ProgramFiles(x86)%\Microsoft Visual Studio\Installer\InstallCleanup.exe" -full
 
 Invoke-WebRequest https://aka.ms/vs/17/release/vs_BuildTools.exe -OutFile vs_BuildTools.exe; Start-Process .\vs_BuildTools.exe -ArgumentList "--quiet --wait --add Microsoft.VisualStudio.Workload.VCTools --includeRecommended --includeOptional" -Wait
-
+```
 
 Dann
+```
 .\vs_BuildTools.exe
+```
+Computer nach der vollständigen Installation von Visual Studio (aller genannten Komponenten) neustarten.
 
-Computer nach der vollständigen Installation von Visual Studio (aller Komponenten) neustarten. 
+✅ Minimal & korrekt (empfohlen)
+
+Im Visual Studio Installer wähle genau diese Workload:
+
+🔹 Workload
+
+☑ Desktop development with C++
+
+✅ Pflicht-Komponenten (rechts im Detailbereich)
+
+Stell sicher, dass mindestens diese Häkchen gesetzt sind:
+
+🧰 Compiler & Toolchain
+
+☑ MSVC v143 – VS 2022 C++ x64/x86 build tools
+
+🪟 Windows SDK
+
+☑ Windows 10 SDK (10.0.19041+)
+(oder Windows 11 SDK – beides ok)
+
+🧱 Build-System
+
+☑ CMake tools for Windows
+
+⚠️ Explizit NICHT nötig
+
+Diese Dinge nicht auswählen, spart Zeit & Platz:
+
+⛔ .NET Desktop Development
+
+⛔ Universal Windows Platform (UWP)
+
+⛔ Game development with C++
+
+⛔ Clang / LLVM
+
+⛔ ATL / MFC
+
+⛔ Spectre-mitigated libraries
+
+⛔ C++ CMake tools for Linux
+
+⛔ Test tools / Profiler
+
+
+```
 cl
 ```
 
