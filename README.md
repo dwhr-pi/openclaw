@@ -120,7 +120,7 @@ Computer nach der vollständigen Installation von Visual Studio (aller genannten
 
 ## notwendige Microsoft Visual Studio Komponenten
 
-Diese nachfolgenden Komponenten werden für Visual Studio Enterprise 2022 bei der Installtion benötigt und werden im rechten Fenster des Installers vor dem Herunterladen aus-/abgewählt. Siehe [Screenshot](Screenshot_Microsoft_Visual_Studio_Komponenten.png). 
+Diese nachfolgenden Komponenten werden für Visual Studio Enterprise 2022 bei der Installtion benötigt und werden im rechten Fenster des Installers im Detailbereich vor dem Herunterladen aus-/abgewählt. Siehe [Screenshot](Screenshot_Microsoft_Visual_Studio_Komponenten.png). 
 
 ✅ Minimal & korrekt (empfohlen)
 
@@ -131,7 +131,7 @@ Im Visual Studio Installer wähle genau diesen nachfolgenden Workload.
 ☑ Desktop development with C++  
 (auf Deutsch: Desktopentwicklung mit C++)
 
-### Davon die Pflicht-Komponenten (Siehe rechts im Detailbereich)
+### Davon die Pflicht-Komponenten (Siehe rechts im Detailbereich im Installer)
 Stell sicher, dass mindestens diese Häkchen gesetzt sind:
 
 #### 🧰 Compiler & Toolchains: Nicht die übrigen vorgänger Versionen, die weiter unten sind.
