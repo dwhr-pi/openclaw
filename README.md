@@ -97,7 +97,7 @@ pnpm -v
 
 Aus Sicherheitsgründen bitte noch [Cmake downloaden](https://cmake.org/download/) und installieren. 
 Es wird noch [VS2013](https://www.google.com/search?q=vs2013+download&oq=VS2013&gs_lcrp=EgZjaHJvbWUqCQgBEAAYExiABDIGCAAQRRg5MgkIARAAGBMYgAQyCQgCEAAYExiABDIJCAMQABgTGIAEMgkIBBAAGBMYgAQyCQgFEAAYExiABDIICAYQABgTGB4yCAgHEAAYExgeMggICBAAGBMYHjIICAkQABgTGB7SAQgzNjA2ajBqN6gCCLACAfEF7VPHFKLHRUk&sourceid=chrome&ie=UTF-8) von Microsoft benötigt.   
-Versuche mal diesen Einzeiler.
+Versuche mal diesen nachfolgenden Einzeiler. (Soll sogar CMake, MSVC (C++ Compiler) und Windows SDK enthalten.)
 ```Powershell
 winget install --id Microsoft.VisualStudio.2022.BuildTools --override "--quiet --wait --add Microsoft.VisualStudio.Workload.VCTools --includeRecommended --includeOptional"
 ```
