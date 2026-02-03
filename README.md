@@ -107,9 +107,24 @@ Invoke-WebRequest https://aka.ms/vs/17/release/vs_BuildTools.exe -OutFile vs_Bui
 Dann
 .\vs_BuildTools.exe
 
+Computer nach der vollständigen Installation von Visual Studio (aller Komponenten) neustarten. 
+cl
+```
 
+Wenn da sowas kommt wie:
 
+```Powershell
+Microsoft (R) C/C++ Optimizing Compiler Version 19.xx
+```
+ist alles korrekt installiert. 
 
+Dann cmake testen mit:
+
+```
+cmake --version
+```
+
+```
 funktioniert nicht
 winget install --id Microsoft.VisualStudio.2022.BuildTools --override "--quiet --wait --add Microsoft.VisualStudio.Workload.VCTools --includeRecommended --includeOptional"
 ```
