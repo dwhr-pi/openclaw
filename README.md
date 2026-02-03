@@ -257,7 +257,7 @@ Also ohne einer funktionierender WSL (bei mir mit `Unbuntu`) ist OpenClaw nicht 
 Die WSL nachzuinstallieren und dann Unbuntu aus dem Microsoft Store zu installieren ist hierzu notwendig und genauso einfach. 
 Dort Benutzer und Passwort, sowie für sudo Nutzung einrichten genügt um in der jetzigen WSL mit Unbuntu weiter machen zu können. 
 Bei meinem Unbuntu ist es mir nicht gelungen seit Windows 7 den Desktop über die WSL zu starten, daher hatte ich mit der Einrichtung der WSL auch auf Windows 11 wieder schnell aufgehört. Auf Windows XP funktionerte das Unbuntu mit Desktop über die WSL recht problemlos. Dies ist aber für die `node` nicht weiter schlimm, solange das Terminal von Unbuntu in der WSL als Adminstrator funktionstüchig ist und über `sudo`-Rechte verfügt. 
-Man braucht hierzu also kein vollwertiges nutzbares eingerichtetes Unbuntu, wie im Microsoft Store als Screenshot abgebildet. 
+Man braucht hierzu also kein vollwertiges nutzbares eingerichtetes Unbuntu, wie im Microsoft Store als Screenshot abgebildet, sondern nur das Terminal von Unbuntu in der WSL. 
 
 
 Die Fehlermeldung von vorhin in der WSL:
