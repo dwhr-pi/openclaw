@@ -240,6 +240,19 @@ Nun eingeben und es wird der Rest gebaut.
 pnpm build
 ```
 
+Dann gab's diese Fehlermeldung: 
+```
+C:\Users\danie\OpenClawBot>pnpm build
+
+> openclaw@2026.1.30 build
+C:\Users\danie\OpenClawBot
+> pnpm canvas:a2ui:bundle && tsc -p tsconfig.json --noEmit false && node --import tsx scripts/canvas-a2ui-copy.ts && node --import tsx scripts/copy-hook-metadata.ts && node --import tsx scripts/write-build-info.ts > openclaw@2026.1.30 canvas:a2ui:bundle
+C:\Users\danie\OpenClawBot > bash scripts/bundle-a2ui.sh wsl: Failed to start the systemd user session for 'unbuntu'. See journalctl for more details. scripts/bundle-a2ui.sh: line 31: node: command not found A2UI bundling failed. Re-run with: pnpm canvas:a2ui:bundle If this persists, verify pnpm deps and try again.  ELIFECYCLE  Command failed.  ELIFECYCLE  Command failed with exit code 1.
+
+C:\Users\danie\OpenClawBot>
+```
+Also ohne einer funktionierender WSL (bei mir mit `Unbuntu`) nicht auf Windows so einfach lauffähig. 
+
 
 Jetzt sollte es anstelle mit `npm run dev` mit nachfolgendem `pnpm dev` endlich gestartet werden können. 
 ```
