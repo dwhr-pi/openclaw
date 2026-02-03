@@ -95,26 +95,33 @@ npm install -g pnpm
 pnpm -v
 ```
 
-Aus Sicherheitsgründen eventuell bitte noch [Cmake downloaden](https://cmake.org/download/) und installieren. 
+Aus Sicherheitsgründen eventuell bitte noch [Cmake](https://cmake.org/download/) downloaden und installieren. 
 Es wird noch [VS2022](https://www.google.com/search?q=vs2022+download&sca_esv=9cf1df91a9197cf6&sxsrf=ANbL-n4ruzYJpkUcupyh-YEDecGGuT9Y1A%3A1770094509267&ei=rX-BaZqIENzYi-gP5a230Ak&biw=1106&bih=719&aic=0&ved=0ahUKEwjaksbzw7ySAxVc7AIHHeXWDZoQ4dUDCBE&uact=5&oq=vs2022+download&gs_lp=Egxnd3Mtd2l6LXNlcnAiD3ZzMjAyMiBkb3dubG9hZDIGEAAYBxgeMgYQABgHGB4yBhAAGAcYHjIGEAAYBxgeMgYQABgHGB4yBhAAGAcYHjIFEAAYgAQyBhAAGAcYHjIIEAAYBxgKGB4yBhAAGAcYHkjzEFDrCljXC3ABeAGQAQCYAfoEoAGKCaoBAzUtMrgBA8gBAPgBAZgCAqAC0ATCAgoQABiwAxjWBBhHmAMAiAYBkAYIkgcFMS40LTGgB5wLsgcDNC0xuAelBMIHBTMtMS4xyAc5gAgA&sclient=gws-wiz-serp) von Microsoft benötigt.   
 
-Versuche mal diesen nachfolgenden Einzeiler. (Enhält CMake, MSVC (C++ Compiler) und Windows SDK.)
+Versuche mal diesen nachfolgenden Einzeiler. (Enhält CMake, MSVC (C++ Compiler) und Windows SDK. Es wird wenn der Einzeiler klappt, der Download/Installation aus Sicherheitsgründen nicht mehr erfoderlich. Mit ChatGPT kann man diesen auch Aktualiesieren und auf den Stand der Zeit bringen.)
 
+Falls eine verpatze Microsoft Visual Studio Installtion zuvor existierte, damit säubern: 
 ```Powershell
 "%ProgramFiles(x86)%\Microsoft Visual Studio\Installer\InstallCleanup.exe" -full
+```
 
+Hiermit jedenfalls downloaden. 
+```Powershell
 Invoke-WebRequest https://aka.ms/vs/17/release/vs_BuildTools.exe -OutFile vs_BuildTools.exe; Start-Process .\vs_BuildTools.exe -ArgumentList "--quiet --wait --add Microsoft.VisualStudio.Workload.VCTools --includeRecommended --includeOptional" -Wait
 ```
-Dies läd die letzte bekannte Version von Microsoft Visual Studio herunter.
+Dies läd die letzte bekannte Version von Microsoft Visual Studio herunter, mit ChatGPT den Befehl aktualliesieren falls es eine neuere Version gibt.
 
 
-Dann installieren mit: 
+Dann Microsoft Visual Studio installieren mit: 
 ```Powershell
 .\vs_BuildTools.exe
 ```
-Computer nach der vollständigen Installation von Visual Studio (aller genannten Komponenten) neustarten.
+Computer nach der vollständigen Installation von Visual Studio (aller genannten Komponenten) neustarten. Mit dem vorherigen `.\vs_BuildTools.exe` Befehl nach dem Neustart den Installer von Visual Studio starten. 
 
-Diese nachfolgenden Komponenten werden für Visual Studio Enterprise 2022 bei der Installtion benötigt und werden im rechten Fenster des Installers vor dem Herunterladen aus-/abgewählt. 
+## notwendige Microsoft Visual Studio Komponenten
+
+Diese nachfolgenden Komponenten werden für Visual Studio Enterprise 2022 bei der Installtion benötigt und werden im rechten Fenster des Installers vor dem Herunterladen aus-/abgewählt. Siehe [Screenshot](Screenshot_Microsoft_Visual_Studio_Komponenten.png). 
+
 ✅ Minimal & korrekt (empfohlen)
 
 Im Visual Studio Installer wähle genau diesen nachfolgenden Workload. 
