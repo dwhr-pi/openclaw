@@ -197,18 +197,20 @@ cmake --version
 
 Daher zog ich diese Lösung vor. 
 Auch dieser Befehl dauert Zeit und achte auf den richtigen Pfad. 
+
+##### Microsoft Visual Studio 2022 Enterprise
 ```Powershell
 & "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvars64.bat"
 ```
-
+##### Microsoft Visual Studio 2022 BuildTools
 ```Powershell
 & "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Auxiliary\Build\vcvars64.bat"
 ```
 
 Der Pfad hängt davon ab, wo VS installiert ist (Enterprise vs BuildTools etc.), sowie ob es die Version 2022 ist. 
 Nach dem Starten der vcvars64.bat öffnete sich ein neues leeres Consolen Fenster [Screenshot](_Screenshot_Microsoft_Visual_Studio_CL.png).  
-In diesem habe ich dann erfolgreich das `pnpm install` ausgeführt. Allerdings musste ich von dort aus in das Arbeitsverzeichnis hin wechseln, um pnpm auszuführen. 
-Es ging alles gut. Eine Warnung gab es noch, in der Verlangt wurde `pnpm approve-builds` auszuführen, um die `core-js` zu bauen....
+In diesem habe ich dann erfolgreich das `pnpm install` ausgeführt. Allerdings musste ich von dort aus in das Arbeitsverzeichnis hin wechseln, um `pnpm` auszuführen. 
+Es ging alles gut. Eine Warnung gab es noch, in der Verlangt wurde `pnpm approve-builds` auszuführen, um die `core-js` zu bauen....  
 
 
 
@@ -233,7 +235,7 @@ Dann wieder
 ```Powershell
 pnpm install
 ```
-Die vorherige Warnung beim Ausführen des Befehls *darf darf danach NICHT mehr erscheinen*. 
+Die vorherige Warnung beim Ausführen des Befehls *darf danach NICHT mehr erscheinen*. 
 
 Nun eingeben und es wird der Rest gebaut. 
 ```Powershell
@@ -257,11 +259,11 @@ Also ohne einer funktionierender WSL (bei mir mit `Unbuntu` ausgestattet) ist Op
 Die WSL nachzuinstallieren und dann Unbuntu aus dem Microsoft Store zu installieren ist hierzu eventuell notwendig und genauso einfach. 
 Dort Benutzer und Passwort, sowie für sudo Nutzung einrichten genügt, um in der jetzigen WSL mit Unbuntu weiter machen zu können. 
 Anmerkung: Bei meinem Unbuntu ist es mir nicht gelungen seit Windows 7 den Desktop über die WSL zu starten, daher hatte ich mit der Einrichtung der WSL auch auf Windows 11 wieder schnell aufgehört. Auf Windows XP funktionerte das Unbuntu mit Desktop über die WSL recht problemlos. Dies ist aber für die notwendige `node` nicht weiter schlimm, solange das Terminal von Unbuntu in der WSL als Adminstrator funktionstüchig ist und über `sudo`-Rechte verfügt. 
-Man braucht hierzu also kein vollwertiges nutzbares eingerichtetes Unbuntu, wie im Microsoft Store als Screenshot abgebildet, sondern nur das Terminal von Unbuntu in der WSL henügte vollständig. 
+Man braucht hierzu also kein vollwertiges nutzbares eingerichtetes Unbuntu, wie im Microsoft Store als Screenshot abgebildet, sondern nur das Terminal von Unbuntu in der WSL genügte vollständig. 
 
 
 Die Fehlermeldung von vorhin in der WSL:
-Dieser Fehler ist mitunter einer der Gründe, weswegen mein Unbuntu nicht im Desktop-Modus starten kann. 
+Dieser Fehler ist mitunter einer der Gründe, weswegen mein Unbuntu im Desktop-Modus nicht starten kann. 
 ```
 wsl: Failed to start the systemd user session for 'unbuntu'
 scripts/bundle-a2ui.sh: line 31: node: command not found
@@ -317,7 +319,7 @@ Command 'node' not found, but can be installed with:
 sudo apt install nodejs
 ```
 
-Aus Sicherheitsgründen Doppelt hält besser, habe ich noch die `node` noch mal erneut installiert.
+Aus Sicherheitsgründen Doppelt hält nunmal besser, habe ich noch die `node` noch mal erneut installiert mit:
 ```
 sudo apt install nodejs
 ```
@@ -372,7 +374,7 @@ XXXXXXXXXXXXX
 Nach einer (langen) Zeit ist es nach Eingabe des Befehls `pnpm dev` soweit, es sollte so inetwa in Deinem Terminal der Powershell von Microsoft Windows innerhalb der WSL ausehen: Siehe [Screenshot](assets/Screenshot/_Screenshot_OpenClaw_in_Powerhell-ELIFECYCLE.png)
 Allerdings wird noch der Fehler `ELIFECYCLE  Command failed with exit code 1` zum Schluss angehängt und wird noch nachfolgend korriert, siehe bei [ELIFECYCLE](#ELIFECYCLE) weiter unten. 
 
-Der Screenshot beinhaltet insgesammt diese Testmeldung in der WSL der Powershell. 
+Der Screenshot beinhaltet insgesammt diese Textmeldung in der WSL der Powershell. 
 ```
 unbuntu@Letsung-MiniPC1:/mnt/c/Users/danie/OpenClawBot$ pnpm dev
 
@@ -460,7 +462,9 @@ Docs: docs.openclaw.ai/cli
  ELIFECYCLE  Command failed with exit code 1.
 unbuntu@Letsung-MiniPC1:/mnt/c/Users/danie/OpenClawBot$ -
 ```
-Anmerkung: Nunmehr mit der `node` zusammen in dem Unbuntu funktioniert endlich die Installation und das Kompilieren vom OpenClaw. Es an der fehlenden Node in meinem Unbuntu in der WSL lag.
+Anmerkung: Nunmehr mit der `node` zusammen in dem Unbuntu funktioniert endlich die Installation und das Kompilieren vom OpenClaw. Es an der fehlenden Node in meinem Unbuntu in der WSL lag.  
+
+
 XXXXXXXXXXXXX
 
 Um die Depenies für `OpenClaw`auf dem neuestem Stand zu halten und unbedingt noch durchführen:
@@ -537,10 +541,11 @@ Du bist durch.
 Jetzt geht’s nicht mehr ums Fixen, sondern ums Benutzen 🙂
 
 ### OpenClaw-Webinterface
-Nach dem Starten, sollte das Webinterface von OpenClaw im Broswer über die `http://127.0.0.1:19001/` lokal oder unter `http://127.0.0.1:18789` erreichbar sein. Bitte überrpüfe deine Firewall und erlaube dies in dem Router oder Fritzbox. 
+Nach dem Starten, sollte das Webinterface von OpenClaw im Broswer über die `http://127.0.0.1:19001/` lokal oder unter `http://127.0.0.1:18789` erreichbar sein. Bitte überrpüfe deine Firewall und erlaube dies in dem Router oder der Fritzbox. 
 
-Über das Internet ist OpenClaw auch für Dich nicht erreichbar. 
-Hierzu kann man kostenlose VPS verwenden und ein iptables durchführen. 
+Über das Internet ist OpenClaw auch für Dich (noch) nicht erreichbar. 
+Hierzu kann man kostenlose VPS verwenden und ein iptables durchführen, denn die meisten DSL Internetzugänge verwenden nur Dual-Slacks und haben gesperrte (Inernet) Ports. Daher ist eie Portweiterleitung zwingend erforderlich.  
+Allerdings kann man OpenClaw auch auf einen freien verfügbaren Port 10000 -1xxxxx (je nach Deinem ISP [Internet Service Provider wie 1&1, Telekom usw.]) hin in der Fritzbox neu kondiguieren, dann wird die Portweiterleitung mit einem VPS nicht mehr zwingend unbedingt erfoderlich. 
 
 #### Klassiker: iptables (sehr verbreitet auf VPS)
 
