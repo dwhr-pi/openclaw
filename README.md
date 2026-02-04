@@ -534,8 +534,12 @@ OpenClaw CLI	✅
 Du bist durch.
 Jetzt geht’s nicht mehr ums Fixen, sondern ums Benutzen 🙂
 
+Nach dem Starten, sollte das Webinterface von OpenClaw im Broswer über die `http://127.0.0.1:19001/` lokal erreichbar sein. 
+
 XXXXXXX
 
+
+### Powershell
 
 #### So öffnest du PowerShell als Administrator unter Windows 11 – es gibt mehrere schnelle Wege:
 
