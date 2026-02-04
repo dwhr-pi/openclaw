@@ -354,7 +354,97 @@ pnpm approve-builds
 + Bestätige mit `y`
 
 XXXXXXXXXXXXX
+Nach einiger Zeit sollte es so inetwa in Deinem Terminal der Powershell bon microsoft Windows innerhalb der WSL ausehen: Siehe [Screenshot](assets/Screenshot/_Screenshot_OpenClaw_in_Powerhell-ELIFECYCLE.png)
+Allerdings wird noch der Fehler `ELIFECYCLE exit code 1` zum Schluss angehängt und wird noch nachfolgend korriert, siehe bei [ELIFECYCLE](#ELIFECYCLE) weiter unten. 
 
+Der Screenshot beinhaltet insgesammt diese Testmeldung in der WSL der Powershell. 
+```
+unbuntu@Letsung-MiniPC1:/mnt/c/Users/danie/OpenClawBot$ pnpm dev
+
+> openclaw@2026.1.30 dev /mnt/c/Users/danie/OpenClawBot
+> node scripts/run-node.mjs
+
+[openclaw] Building TypeScript (dist is stale).
+
+🦞 OpenClaw 2026.1.30 (unknown) — I'm like tmux: confusing at first, then suddenly you can't live without me.
+
+Usage: openclaw [options] [command]
+
+Options:
+  -V, --version     output the version number
+  --dev             Dev profile: isolate state under ~/.openclaw-dev, default gateway port 19001, and shift derived
+                    ports (browser/canvas)
+  --profile <name>  Use a named profile (isolates OPENCLAW_STATE_DIR/OPENCLAW_CONFIG_PATH under ~/.openclaw-<name>)
+  --no-color        Disable ANSI colors
+  -h, --help        display help for command
+
+Commands:
+  setup             Initialize ~/.openclaw/openclaw.json and the agent workspace
+  onboard           Interactive wizard to set up the gateway, workspace, and skills
+  configure         Interactive prompt to set up credentials, devices, and agent defaults
+  config            Config helpers (get/set/unset). Run without subcommand for the wizard.
+  doctor            Health checks + quick fixes for the gateway and channels
+  dashboard         Open the Control UI with your current token
+  reset             Reset local config/state (keeps the CLI installed)
+  uninstall         Uninstall the gateway service + local data (CLI remains)
+  message           Send messages and channel actions
+  memory            Memory search tools
+  agent             Run an agent turn via the Gateway (use --local for embedded)
+  agents            Manage isolated agents (workspaces + auth + routing)
+  acp               Agent Control Protocol tools
+  gateway           Gateway control
+  daemon            Gateway service (legacy alias)
+  logs              Gateway logs
+  system            System events, heartbeat, and presence
+  models            Model configuration
+  approvals         Exec approvals
+  nodes             Node commands
+  devices           Device pairing + token management
+  node              Node control
+  sandbox           Sandbox tools
+  tui               Terminal UI
+  cron              Cron scheduler
+  dns               DNS helpers
+  docs              Docs helpers
+  hooks             Hooks tooling
+  webhooks          Webhook helpers
+  pairing           Pairing helpers
+  plugins           Plugin management
+  channels          Channel management
+  directory         Directory commands
+  security          Security helpers
+  skills            Skills management
+  update            CLI update helpers
+  completion        Generate shell completion script
+  status            Show channel health and recent session recipients
+  health            Fetch health from the running gateway
+  sessions          List stored conversation sessions
+  browser           Manage OpenClaw's dedicated browser (Chrome/Chromium)
+  help              display help for command
+
+Examples:
+  openclaw channels login --verbose
+    Link personal WhatsApp Web and show QR + connection logs.
+  openclaw message send --target +15555550123 --message "Hi" --json
+    Send via your web session and print JSON result.
+  openclaw gateway --port 18789
+    Run the WebSocket Gateway locally.
+  openclaw --dev gateway
+    Run a dev Gateway (isolated state/config) on ws://127.0.0.1:19001.
+  openclaw gateway --force
+    Kill anything bound to the default gateway port, then start it.
+  openclaw gateway ...
+    Gateway control via WebSocket.
+  openclaw agent --to +15555550123 --message "Run summary" --deliver
+    Talk directly to the agent using the Gateway; optionally send the WhatsApp reply.
+  openclaw message send --channel telegram --target @mychat --message "Hi"
+    Send via your Telegram bot.
+
+Docs: docs.openclaw.ai/cli
+
+ ELIFECYCLE  Command failed with exit code 1.
+unbuntu@Letsung-MiniPC1:/mnt/c/Users/danie/OpenClawBot$ -
+```
 Anmerkung: Nunmehr mit der `node` zusammen in dem Unbuntu funktioniert endlich die Installation und das Kompilieren vom OpenClaw. Es an der fehlenden Node in meinem Unbuntu in der WSL lag.
 XXXXXXXXXXXXX
 
@@ -375,6 +465,75 @@ Um die Depenies für `OpenClaw`auf dem neuestem Stand zu halten und bedingt noch
 ```
 apt list --upgradable
 ```
+XXXXXXXX
+
+#### ELIFECYCLE
+🤔 Warum trotzdem `ELIFECYCLE exit code 1`?
+
+`pnpm dev` macht intern ungefähr das:
+```Powershell
+node scripts/run-node.mjs
+→ startet die CLI ohne Argumente
+→ CLI zeigt Help/Usage
+→ Prozess beendet sich
+```
+
+Die CLI:
+
++ läuft **nicht dauerhaft**
++ sondern zeigt nur Hilfe
++ und beendet sich mit Exit Code ≠ 0
+
+👉 pnpm interpretiert das als „Script fehlgeschlagen“,
+👉 für **dich ist es aber völlig egal**.
+
+Das ist ein **Design-Detail**, kein Fehler.
+
+##### 🟢 Was du JETZT machen sollst
+1️⃣ OpenClaw initialisieren
+```Powershell
+pnpm dev setup
+```
+
+Oder direkt:
+```Powershell
+pnpm dev onboard
+```
+
+Das startet den interaktiven Setup-Wizard.
+
+2️⃣ Für Dev-Modus (empfohlen)
+```Powershell
+pnpm dev --dev setup
+pnpm dev --dev gateway
+```
+
+Dann läuft alles isoliert unter:
+```Powershell
+~/.openclaw-dev
+```
+
+3️⃣ Typische nächste Befehle
+```Powershell
+pnpm dev doctor
+pnpm dev status
+pnpm dev dashboard
+```
+
+##### 🧠 Kurz gesagt
+Sache	Status
+Build	✅
+WSL	✅
+Node	✅
+pnpm	✅
+native deps	✅
+OpenClaw CLI	✅
+
+Du bist durch.
+Jetzt geht’s nicht mehr ums Fixen, sondern ums Benutzen 🙂
+
+XXXXXXX
+
 
 #### So öffnest du PowerShell als Administrator unter Windows 11 – es gibt mehrere schnelle Wege:
 
