@@ -537,7 +537,7 @@ Du bist durch.
 Jetzt geht’s nicht mehr ums Fixen, sondern ums Benutzen 🙂
 
 ### OpenClaw-Webinterface
-Nach dem Starten, sollte das Webinterface von OpenClaw im Broswer über die `http://127.0.0.1:19001/` lokal erreichbar sein. Bitte überrpüfe deine Firewall und erlaube dies in der Fritzbox. 
+Nach dem Starten, sollte das Webinterface von OpenClaw im Broswer über die `http://127.0.0.1:19001/` lokal oder unter `http://127.0.0.1:18789` erreichbar sein. Bitte überrpüfe deine Firewall und erlaube dies in dem Router oder Fritzbox. 
 
 Über das Internet ist OpenClaw auch für Dich nicht erreichbar. 
 Hierzu kann man kostenlose VPS verwenden und ein iptables durchführen. 
