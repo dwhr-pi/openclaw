@@ -463,7 +463,7 @@ unbuntu@Letsung-MiniPC1:/mnt/c/Users/danie/OpenClawBot$ -
 Anmerkung: Nunmehr mit der `node` zusammen in dem Unbuntu funktioniert endlich die Installation und das Kompilieren vom OpenClaw. Es an der fehlenden Node in meinem Unbuntu in der WSL lag.
 XXXXXXXXXXXXX
 
-Um die Depenies für `OpenClaw`auf dem neuestem Stand zu halten und bedingt noch durchführen:
+Um die Depenies für `OpenClaw`auf dem neuestem Stand zu halten und unbedingt noch durchführen:
 ```
 apt list --upgradable
 ```
@@ -475,10 +475,11 @@ XXXXXXXX
 `pnpm dev` macht intern ungefähr das:
 ```Powershell
 node scripts/run-node.mjs
-→ startet die CLI ohne Argumente
-→ CLI zeigt Help/Usage
-→ Prozess beendet sich
 ```
++ → startet die `CLI` ohne Argumente
++ → `CLI` zeigt Help/Usage
+´→ Prozess beendet sich
+
 
 Die CLI:
 
@@ -486,12 +487,13 @@ Die CLI:
 + sondern zeigt nur Hilfe
 + und beendet sich mit Exit Code ≠ 0
 
-👉 pnpm interpretiert das als „Script fehlgeschlagen“,
+👉 pnpm interpretiert das als „Script fehlgeschlagen“,  
 👉 für **dich ist es aber völlig egal**.
 
 Das ist ein **Design-Detail**, kein Fehler.
 
-##### 🟢 Was du JETZT machen sollst
+##### 🟢 Was du JETZT noch machen sollst
+
 1️⃣ OpenClaw initialisieren
 ```Powershell
 pnpm dev setup
@@ -534,7 +536,71 @@ OpenClaw CLI	✅
 Du bist durch.
 Jetzt geht’s nicht mehr ums Fixen, sondern ums Benutzen 🙂
 
-Nach dem Starten, sollte das Webinterface von OpenClaw im Broswer über die `http://127.0.0.1:19001/` lokal erreichbar sein. 
+### OpenClaw-Webinterface
+Nach dem Starten, sollte das Webinterface von OpenClaw im Broswer über die `http://127.0.0.1:19001/` lokal erreichbar sein. Bitte überrpüfe deine Firewall und erlaube dies in der Fritzbox. 
+
+Über das Internet ist OpenClaw auch für Dich nicht erreichbar. 
+Hierzu kann man kostenlose VPS verwenden und ein iptables durchführen. 
+
+#### Klassiker: iptables (sehr verbreitet auf VPS)
+
+Port 80 auf 8080 weiterleiten:
+```
+iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8080
+```
+
+Oder auf eine andere IP (DNAT):
+```
+iptables -t nat -A PREROUTING -p tcp --dport 80 -j DNAT --to-destination 127.0.0.1:8080
+```
+
+Nicht vergessen:
+```
+sysctl -w net.ipv4.ip_forward=1
+```
+
+Regeln dauerhaft speichern (z. B.):
+```
+iptables-save > /etc/iptables/rules.v4
+```
+
+##### 🧱 Modern: nftables (Nachfolger von iptables)
+```
+nft add table ip nat
+nft add chain ip nat prerouting { type nat hook prerouting priority 0 \; }
+nft add rule ip nat prerouting tcp dport 80 redirect to 8080
+```
+
+Status checken:
+```
+nft list ruleset
+```
+
+#####🧯 firewalld (CentOS, Rocky, Alma, Fedora)
+```
+firewall-cmd --add-forward-port=port=80:proto=tcp:toport=8080 --permanent
+firewall-cmd --reload
+```
+
+##### 🧪 ufw (Ubuntu/Debian, „einfach & bequem“)
+
+Direkt kann UFW das nicht gut → man editiert:
+```
+/etc/ufw/before.rules
+```
+
+Einfügen:
+```
+*nat
+:PREROUTING ACCEPT [0:0]
+-A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8080
+COMMIT
+```
+
+Dann:
+```
+ufw reload
+```
 
 XXXXXXX
 
