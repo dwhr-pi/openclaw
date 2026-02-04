@@ -253,15 +253,15 @@ C:\Users\danie\OpenClawBot>
 ```
 
 ### WSL
-Also ohne einer funktionierender WSL (bei mir mit `Unbuntu`) ist OpenClaw nicht auf Windows so einfach lauffähig. 
-Die WSL nachzuinstallieren und dann Unbuntu aus dem Microsoft Store zu installieren ist hierzu notwendig und genauso einfach. 
-Dort Benutzer und Passwort, sowie für sudo Nutzung einrichten genügt um in der jetzigen WSL mit Unbuntu weiter machen zu können. 
-Bei meinem Unbuntu ist es mir nicht gelungen seit Windows 7 den Desktop über die WSL zu starten, daher hatte ich mit der Einrichtung der WSL auch auf Windows 11 wieder schnell aufgehört. Auf Windows XP funktionerte das Unbuntu mit Desktop über die WSL recht problemlos. Dies ist aber für die `node` nicht weiter schlimm, solange das Terminal von Unbuntu in der WSL als Adminstrator funktionstüchig ist und über `sudo`-Rechte verfügt. 
-Man braucht hierzu also kein vollwertiges nutzbares eingerichtetes Unbuntu, wie im Microsoft Store als Screenshot abgebildet, sondern nur das Terminal von Unbuntu in der WSL. 
+Also ohne einer funktionierender WSL (bei mir mit `Unbuntu` ausgestattet) ist OpenClaw nicht so einfach auf Windows lauffähig. 
+Die WSL nachzuinstallieren und dann Unbuntu aus dem Microsoft Store zu installieren ist hierzu eventuell notwendig und genauso einfach. 
+Dort Benutzer und Passwort, sowie für sudo Nutzung einrichten genügt, um in der jetzigen WSL mit Unbuntu weiter machen zu können. 
+Anmerkung: Bei meinem Unbuntu ist es mir nicht gelungen seit Windows 7 den Desktop über die WSL zu starten, daher hatte ich mit der Einrichtung der WSL auch auf Windows 11 wieder schnell aufgehört. Auf Windows XP funktionerte das Unbuntu mit Desktop über die WSL recht problemlos. Dies ist aber für die notwendige `node` nicht weiter schlimm, solange das Terminal von Unbuntu in der WSL als Adminstrator funktionstüchig ist und über `sudo`-Rechte verfügt. 
+Man braucht hierzu also kein vollwertiges nutzbares eingerichtetes Unbuntu, wie im Microsoft Store als Screenshot abgebildet, sondern nur das Terminal von Unbuntu in der WSL henügte vollständig. 
 
 
 Die Fehlermeldung von vorhin in der WSL:
-
+Dieser Fehler ist mitunter einer der Gründe, weswegen mein Unbuntu nicht im Desktop-Modus starten kann. 
 ```
 wsl: Failed to start the systemd user session for 'unbuntu'
 scripts/bundle-a2ui.sh: line 31: node: command not found
@@ -276,7 +276,9 @@ Das heißt:
 3. Deshalb findet das Bash-Script **kein** `node`
 
 
-Innerhalb der WSL testen welche Node Version installiert ist. 
+
+
+Innerhalb der WSL testen welche Node Version installiert ist mit. 
 ```
 node -v
 ```
@@ -289,14 +291,90 @@ node -v
 npm -v
 ```
 
+Zusätzlich habe ich nach dem Bauen der `node` noch die Standart Node installiert. 
+
+Ob die WSL im Terminal CMD oder der Powershell von Microsoft auf dem Windows Betriebsystem nunmehr zur Verfügung steht und funktionsbereit ist. Kann man mit 
+
+```
+wsl --status
+```
+Abfragen. Wird soetwas wie: 
+
+```
+Standarddistribution: Ubuntu
+Standardversion: 2
+```
+
+Zurückgegeben, dann ist alles gut. 
+
+Weil bei mir Unbuntu nicht ordnungsgemäß funktioniert sieht nach dem Wechsel in die WSL die Fehlermeldung (die nicht weiter schlimm ist) wie nachfolgend aus.
+
+```
+C:\Users\danie\OpenClaw>wsl
+wsl: Failed to start the systemd user session for 'unbuntu'. See journalctl for more details.
+unbuntu@Letsung-MiniPC1:/mnt/c/Users/danie/OpenClawBot$ node -v
+Command 'node' not found, but can be installed with:
+sudo apt install nodejs
+```
+
+Aus Sicherheitsgründen Doppelt hält besser, habe ich noch die `node` noch mal erneut installiert.
+```
+sudo apt install nodejs
+```
+
+#### Warum das notwendig ist:
+
++ Node 18 kann einige ES-Module / Features nicht richtig, die das Projekt braucht
++ Node ≥22.12 ist **explizit in package.json definiert** → sonst bricht der Build
++ Mit Node 24 + pnpm in WSL läuft alles sauber, inkl. `dist/entry.js`
+
+
+```
+npm install -g pnpm
+```
+
+```
+pnpm -v
+```
+
+Sicherstellen, das man sich in dem Pfad in der WSL auf Unbuntu sich befindet. 
+```
+cd /mnt/c/Users/danie/OpenClaw
+```
+
+```
+pnpm install
+```
+
+```
+pnpm approve-builds
+```
+#### pnpm fragt dich, welche Pakete Build-Skripte ausführen dürfen
++ Wähle `core-js`
++ Bestätige mit `y`
+
 XXXXXXXXXXXXX
 
+Anmerkung: Nunmehr mit der `node` zusammen in dem Unbuntu funktioniert endlich die Installation und das Kompilieren vom OpenClaw. Es an der fehlenden Node in meinem Unbuntu in der WSL lag.
+XXXXXXXXXXXXX
+
+Danach: Build ausführen
+```
+pnpm build
+```
 
 Jetzt sollte es anstelle mit `npm run dev` mit nachfolgendem `pnpm dev` endlich gestartet werden können. 
 ```
 pnpm dev
 ```
+Selbst das Starten von `OpenClaw` dauert seine Zeit. Also Gedult und abwarten. 
+Dann folgt die Konfiguration von `OpenClaw`. 
 
+
+Um die Depenies für `OpenClaw`auf dem neuestem Stand zu halten und bedingt noch durchführen:
+```
+apt list --upgradable
+```
 
 #### So öffnest du PowerShell als Administrator unter Windows 11 – es gibt mehrere schnelle Wege:
 
