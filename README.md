@@ -353,9 +353,24 @@ pnpm approve-builds
 + Wähle `core-js`
 + Bestätige mit `y`
 
-XXXXXXXXXXXXX
-Nach einiger Zeit sollte es so inetwa in Deinem Terminal der Powershell bon microsoft Windows innerhalb der WSL ausehen: Siehe [Screenshot](assets/Screenshot/_Screenshot_OpenClaw_in_Powerhell-ELIFECYCLE.png)
-Allerdings wird noch der Fehler `ELIFECYCLE exit code 1` zum Schluss angehängt und wird noch nachfolgend korriert, siehe bei [ELIFECYCLE](#ELIFECYCLE) weiter unten. 
+
+Danach: Build ausführen
+```
+pnpm build
+```
+
+Jetzt sollte es anstelle mit `npm run dev` mit nachfolgendem `pnpm dev` endlich gestartet werden können. 
+```
+pnpm dev
+```
+Selbst das Starten von `OpenClaw` dauert seine Zeit. Also Gedult und abwarten. 
+Dann folgt die Konfiguration von `OpenClaw`. 
+
+XXXXXXXXXXXXX  
+
+
+Nach einer (langen) Zeit ist es nach Eingabe des Befehls `pnpm dev` soweit, es sollte so inetwa in Deinem Terminal der Powershell von Microsoft Windows innerhalb der WSL ausehen: Siehe [Screenshot](assets/Screenshot/_Screenshot_OpenClaw_in_Powerhell-ELIFECYCLE.png)
+Allerdings wird noch der Fehler `ELIFECYCLE  Command failed with exit code 1` zum Schluss angehängt und wird noch nachfolgend korriert, siehe bei [ELIFECYCLE](#ELIFECYCLE) weiter unten. 
 
 Der Screenshot beinhaltet insgesammt diese Testmeldung in der WSL der Powershell. 
 ```
@@ -448,19 +463,6 @@ unbuntu@Letsung-MiniPC1:/mnt/c/Users/danie/OpenClawBot$ -
 Anmerkung: Nunmehr mit der `node` zusammen in dem Unbuntu funktioniert endlich die Installation und das Kompilieren vom OpenClaw. Es an der fehlenden Node in meinem Unbuntu in der WSL lag.
 XXXXXXXXXXXXX
 
-Danach: Build ausführen
-```
-pnpm build
-```
-
-Jetzt sollte es anstelle mit `npm run dev` mit nachfolgendem `pnpm dev` endlich gestartet werden können. 
-```
-pnpm dev
-```
-Selbst das Starten von `OpenClaw` dauert seine Zeit. Also Gedult und abwarten. 
-Dann folgt die Konfiguration von `OpenClaw`. 
-
-
 Um die Depenies für `OpenClaw`auf dem neuestem Stand zu halten und bedingt noch durchführen:
 ```
 apt list --upgradable
@@ -468,7 +470,7 @@ apt list --upgradable
 XXXXXXXX
 
 #### ELIFECYCLE
-🤔 Warum trotzdem `ELIFECYCLE exit code 1`?
+🤔 Warum trotzdem `ELIFECYCLE  Command failed with exit code 1`?
 
 `pnpm dev` macht intern ungefähr das:
 ```Powershell
